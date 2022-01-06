@@ -1,0 +1,10 @@
+{
+  "empSyncBase.autoSync": true,
+  "empSyncBase.autoUpdate": true,
+  "empSyncBase.fileURL": [
+    {
+      "url": "https://raw.githubusercontent.com/victorsoares96/redux-microfrontend-tickets/master/src/@types/tickets.d.ts",
+      "name": "src/@types/tickets.d.ts"
+    }
+  ]
+}

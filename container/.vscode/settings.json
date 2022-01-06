@@ -1,0 +1,10 @@
+{
+  "empSyncBase.autoSync": true,
+  "empSyncBase.autoUpdate": true,
+  "empSyncBase.fileURL": [
+    {
+      "url": "https://raw.githubusercontent.com/victorsoares96/redux-microfrontend-users/master/src/index.d.ts",
+      "name": "src/@types/users.d.ts"
+    }
+  ]
+}

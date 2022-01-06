@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/victorsoares96/react-redux-microfrontend-boilerplate.git",
+  "author": "Victor Soares <vitorsoares96@hotmail.com>",
+  "scripts": {
+    "install:dependencies": "lerna run install:dependencies",
+    "start": "concurrently \"lerna run --parallel start\" \"npm run serve\"",
+    "build": "lerna run build",
+    "clean": "lerna run --parallel clean"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "lerna": "^4.0.0"
+  },
+  "name": "react-redux-microfrontend-boilerplate"
+}
