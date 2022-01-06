@@ -4,6 +4,7 @@ import { store } from "../../redux/store";
 import { createTicket } from "../../redux/tickets/tickets.slice";
 import { importFederatedModule } from "../../utils/general";
 import MFEUsers from 'users/App';
+import { Button } from "antd";
 
 const Users = importFederatedModule<typeof MFEUsers>('users', './users/App');
 
@@ -15,6 +16,7 @@ const Landing = () => {
       <div style={{ border: "1.5px solid red" }}>
         <h3>Welcome to Host App</h3>
 
+        <Button type="primary">Host App</Button>
         <div>
           <button
             onClick={() =>

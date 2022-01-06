@@ -1,5 +1,6 @@
 declare module '@myapp/container/App' {
   /// <reference types="react" />
+  import './styles/theme.less'
   const App: () => JSX.Element
   export default App
 }

@@ -1,0 +1,59 @@
+@import '~antd/dist/antd.less';
+
+@primary-color: #4c12a1; // primary color for all components
+@link-color: #4c12a1; // link color
+@success-color: #40d36c; // success state color
+@warning-color: #ffbc00; // warning state color
+@error-color: #ff722a; // error state color
+@font-size-base: 14px; // major text font size
+@heading-color: rgba(0, 0, 0, 0.85); // heading text color
+@text-color: rgba(0, 0, 0, 0.65); // major text color
+@text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
+@disabled-color: rgba(0, 0, 0, 0.25); // disable state color
+@border-radius-base: 18px; // major border radius
+@border-color-base: #d9d9d9; // major border color
+// @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
+@box-shadow-base: 0 2px 8px rgba(76, 18, 161, 0.15); // major shadow for layers
+
+@hover-default: rgba(76, 18, 161, 0.03);
+@table-row-hover-bg: @hover-default;
+@item-hover-bg: rgba(76, 18, 161, 0.05);
+@item-active-bg: rgba(76, 18, 161, 0.05);
+@tree-node-selected-bg: rgba(76, 18, 161, 0.1);
+@tree-directory-selected-bg: rgba(76, 18, 161, 0.1);
+@collapse-panel-border-radius: @border-radius-base;
+
+@alert-info-border-color: transparent;
+@alert-info-bg-color: rgba(202, 209, 235, 0.4);
+@alert-message-color: rgba(20, 20, 20, 0.64);
+
+.ant-collapse-header {
+  border-radius: @border-radius-base !important;
+}
+.async-select .async-select__control,
+.async-select .async-select__multi-value {
+  border-radius: @border-radius-base;
+}
+.ant-select-selection__choice {
+  border-radius: @border-radius-base !important;
+}
+.ant-select-dropdown-menu-item-active:hover,
+.ant-dropdown-menu-item-active:hover {
+  border-radius: @border-radius-base;
+}
+.ant-dropdown-menu-item .ant-dropdown-menu-title-content a {
+  color: @text-color;
+}
+.ant-dropdown-menu-item-active:hover .ant-dropdown-menu-title-content a {
+  color: @link-color;
+}
+.ant-checkbox-inner {
+  border-radius: 2px !important;
+}
+.ant-form-item-explain.ant-form-item-explain-error {
+  font-size: 12px;
+}
+
+.ant-alert {
+  border-radius: 8px;
+}
