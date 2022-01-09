@@ -1,17 +1,27 @@
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
+const path = require("path");
 
 module.exports = merge(common, {
   mode: "development",
-  devtool: "source-map",
-  optimization: {
-    minimize: false,
-  },
   devServer: {
-    static: "./dist",
-    port: 3002
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    port: 3002,
   },
   output: {
-    publicPath: "http://localhost:3002/",
+    publicPath: 'auto',
   },
+  //devtool: "source-map",
+  /*optimization: {
+    minimize: false,
+  },*/
+  /*devServer: {
+    static: "./dist",
+    port: 3002
+  },*/
+  /*output: {
+    publicPath: "http://localhost:3002/",
+  },*/
 });

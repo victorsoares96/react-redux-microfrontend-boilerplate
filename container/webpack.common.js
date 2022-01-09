@@ -66,12 +66,8 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new ModuleFederationPlugin({
       name: "tickets",
-      library: { type: "var", name: "tickets" },
-      filename: "remoteEntry.js",
-      exposes: {
-        "./tickets/redux/hooks": "./src/redux/hooks",
-        "./tickets/redux/tickets/tickets.slice":
-          "./src/redux/tickets/tickets.slice",
+      remotes: {
+        'users': 'users@http://localhost:3002/remoteEntry.js',
       },
       shared: {
         ...deps,
@@ -84,9 +80,9 @@ module.exports = {
       },
     }),
     new TuneDtsPlugin({
-      output: path.join(createPath, createName),
-      path: createPath,
-      name: createName,
+      output: './src/@types/tickets.d.ts',
+      path: './src/@types',
+      name: 'tickets.d.ts',
       isDefault: true,
     }),
   ],

@@ -27,9 +27,9 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           "css-loader",
           {
-            loader: 'less-loader',
+            loader: "less-loader",
             options: {
-             lessOptions: {
+              lessOptions: {
                 javascriptEnabled: true,
               },
             },
@@ -67,8 +67,11 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "users",
       filename: "remoteEntry.js",
+      library: { type: "var", name: "users" },
       exposes: {
-        "./users/App": "./src/App",
+        "./App": "./src/App",
+        "./test": "./src/utils/test",
+        "./users/redux/users/users.slice": "./src/redux/users/users.slice",
       },
       shared: {
         ...deps,
@@ -84,9 +87,9 @@ module.exports = {
       template: "./public/index.html",
     }),
     new TuneDtsPlugin({
-      output: path.join(createPath, createName),
-      path: createPath,
-      name: createName,
+      output: './src/@types/users.d.ts',
+      path: './src/@types',
+      name: 'users.d.ts',
       isDefault: true,
     }),
   ],

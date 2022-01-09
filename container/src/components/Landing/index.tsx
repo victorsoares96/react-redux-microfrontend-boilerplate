@@ -2,11 +2,15 @@ import React, { Suspense } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { store } from "../../redux/store";
 import { createTicket } from "../../redux/tickets/tickets.slice";
-import { importFederatedModule } from "../../utils/general";
-import MFEUsers from 'users/App';
+import { dynamicFederation, importFederatedModule } from "../../utils/general";
+
+// import usersReducer from './users/redux/users/users.slice';
 import { Button } from "antd";
 
-const Users = importFederatedModule<typeof MFEUsers>('users', './users/App');
+import { createUser } from 'users/redux/users/users.slice';
+const Users = React.lazy(() => import("users/App"));
+// const Ola = importFederatedModule<any>('users', './users/redux/users/users.slice');
+// const Users = importFederatedModule<typeof MFEUsers>('users', './users/App');
 
 const Landing = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +20,7 @@ const Landing = () => {
       <div style={{ border: "1.5px solid red" }}>
         <h3>Welcome to Host App</h3>
 
-        <Button type="primary">Host App</Button>
+        <Button type="primary" onClick={() => test()}>Host App</Button>
         <div>
           <button
             onClick={() =>

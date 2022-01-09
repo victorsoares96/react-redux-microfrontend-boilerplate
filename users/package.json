@@ -1,5 +1,5 @@
 {
-  "name": "@myapp/users",
+  "name": "users",
   "version": "0.0.0",
   "private": false,
   "dependencies": {
@@ -36,7 +36,7 @@
   },
   "scripts": {
     "install:dependencies": "npm install",
-    "start": "webpack serve --port 3002 --config webpack.dev.js",
+    "start": "webpack serve --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "clean": "rm -rf dist"
   }

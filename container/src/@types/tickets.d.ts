@@ -1,60 +1,60 @@
-declare module '@myapp/container/App' {
+declare module 'container/App' {
   /// <reference types="react" />
   import './styles/theme.less'
   const App: () => JSX.Element
   export default App
 }
-declare module '@myapp/container/bootstrap' {
+declare module 'container/bootstrap' {
   export {}
 }
-declare module '@myapp/container/components/Landing' {
+declare module 'container/components/Landing' {
   /// <reference types="react" />
   const Landing: () => JSX.Element
   export default Landing
 }
-declare module '@myapp/container' {
+declare module 'container' {
   export {}
 }
-declare module '@myapp/container/redux/hooks' {
+declare module 'container/redux/hooks' {
   import { TypedUseSelectorHook } from 'react-redux'
-  import type { RootState } from '@myapp/container/redux/store'
+  import type { RootState } from 'container/redux/store'
   export const useAppDispatch: () => import('redux').Dispatch<
     import('redux').AnyAction
   > &
     import('redux-thunk').ThunkDispatch<
       import('redux').CombinedState<{
-        tickets: import('@myapp/container/redux/tickets/tickets.slice').TicketsGridState
+        tickets: import('container/redux/tickets/tickets.slice').TicketsGridState
       }>,
       null,
       import('redux').AnyAction
     > &
     import('redux-thunk').ThunkDispatch<
       import('redux').CombinedState<{
-        tickets: import('@myapp/container/redux/tickets/tickets.slice').TicketsGridState
+        tickets: import('container/redux/tickets/tickets.slice').TicketsGridState
       }>,
       undefined,
       import('redux').AnyAction
     >
   export const useAppSelector: TypedUseSelectorHook<RootState>
 }
-declare module '@myapp/container/redux/store' {
+declare module 'container/redux/store' {
   import { ThunkAction, Action } from '@reduxjs/toolkit'
   export const makeStore: () => import('@reduxjs/toolkit').EnhancedStore<
     import('redux').CombinedState<{
-      tickets: import('@myapp/container/redux/tickets/tickets.slice').TicketsGridState
+      tickets: import('container/redux/tickets/tickets.slice').TicketsGridState
     }>,
     import('redux').AnyAction,
     [
       | import('redux-thunk').ThunkMiddleware<
           import('redux').CombinedState<{
-            tickets: import('@myapp/container/redux/tickets/tickets.slice').TicketsGridState
+            tickets: import('container/redux/tickets/tickets.slice').TicketsGridState
           }>,
           import('redux').AnyAction,
           null
         >
       | import('redux-thunk').ThunkMiddleware<
           import('redux').CombinedState<{
-            tickets: import('@myapp/container/redux/tickets/tickets.slice').TicketsGridState
+            tickets: import('container/redux/tickets/tickets.slice').TicketsGridState
           }>,
           import('redux').AnyAction,
           undefined
@@ -64,20 +64,20 @@ declare module '@myapp/container/redux/store' {
   export const injectReducer: (key: string, reducer: any) => void
   export const store: import('@reduxjs/toolkit').EnhancedStore<
     import('redux').CombinedState<{
-      tickets: import('@myapp/container/redux/tickets/tickets.slice').TicketsGridState
+      tickets: import('container/redux/tickets/tickets.slice').TicketsGridState
     }>,
     import('redux').AnyAction,
     [
       | import('redux-thunk').ThunkMiddleware<
           import('redux').CombinedState<{
-            tickets: import('@myapp/container/redux/tickets/tickets.slice').TicketsGridState
+            tickets: import('container/redux/tickets/tickets.slice').TicketsGridState
           }>,
           import('redux').AnyAction,
           null
         >
       | import('redux-thunk').ThunkMiddleware<
           import('redux').CombinedState<{
-            tickets: import('@myapp/container/redux/tickets/tickets.slice').TicketsGridState
+            tickets: import('container/redux/tickets/tickets.slice').TicketsGridState
           }>,
           import('redux').AnyAction,
           undefined
@@ -93,11 +93,11 @@ declare module '@myapp/container/redux/store' {
     Action<string>
   >
 }
-declare module '@myapp/container/redux/tickets/tickets.api' {
-  import { Ticket } from '@myapp/container/redux/tickets/tickets.slice'
+declare module 'container/redux/tickets/tickets.api' {
+  import { Ticket } from 'container/redux/tickets/tickets.slice'
   export function createTicket(ticket: Ticket): Promise<Ticket>
 }
-declare module '@myapp/container/redux/tickets/tickets.slice' {
+declare module 'container/redux/tickets/tickets.slice' {
   import { PayloadAction } from '@reduxjs/toolkit'
   export type Ticket = {
     id: number
@@ -133,14 +133,16 @@ declare module '@myapp/container/redux/tickets/tickets.slice' {
   >
   export default _default
 }
-declare module '@myapp/container/utils/general' {
+declare module 'container/utils/general' {
   import React, { ComponentType } from 'react'
+  export const mfe: () => Promise<void>
+  export const dynamicFederation: (scope: string, module: any) => Promise<any>
   export function importFederatedModule<T extends ComponentType<any>>(
     name: string,
     federatedModule: any
   ): React.LazyExoticComponent<T>
 }
-declare module '@myapp/container' {
-  import main = require('@myapp/container')
+declare module 'container' {
+  import main = require('container')
   export = main
 }
