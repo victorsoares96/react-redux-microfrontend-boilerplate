@@ -14,7 +14,7 @@ module.exports = merge(common, {
     new ModuleFederationPlugin({
       name: "container",
       remotes: {
-        users: 'users@https://victorsoares-app-users/remoteEntry.js',
+        users: 'users@https://victorsoares-app-users.netlify.app/remoteEntry.js',
       },
       shared: {
         ...deps,
