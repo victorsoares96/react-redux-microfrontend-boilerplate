@@ -3,7 +3,7 @@
   "empSyncBase.autoUpdate": true,
   "empSyncBase.fileURL": [
     {
-      "url": "https://raw.githubusercontent.com/victorsoares96/redux-microfrontend-users/master/src/index.d.ts",
+      "url": "https://raw.githubusercontent.com/victorsoares96/react-redux-microfrontend-boilerplate/master/users/src/%40types/users.d.ts",
       "name": "src/@types/users.d.ts"
     }
   ]

@@ -1,12 +1,8 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const { TuneDtsPlugin } = require("@efox/emp-tune-dts-plugin");
-const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const deps = require("./package.json").dependencies;
-
-const createName = "tickets.d.ts";
-const createPath = "./src/@types";
 
 module.exports = {
   entry: "./src/index",
@@ -80,9 +76,9 @@ module.exports = {
       },
     }),
     new TuneDtsPlugin({
-      output: './src/@types/tickets.d.ts',
+      output: './src/@types/container.d.ts',
       path: './src/@types',
-      name: 'tickets.d.ts',
+      name: 'container.d.ts',
       isDefault: true,
     }),
   ],

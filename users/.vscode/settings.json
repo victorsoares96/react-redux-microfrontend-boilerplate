@@ -3,8 +3,8 @@
   "empSyncBase.autoUpdate": true,
   "empSyncBase.fileURL": [
     {
-      "url": "https://raw.githubusercontent.com/victorsoares96/redux-microfrontend-tickets/master/src/@types/tickets.d.ts",
-      "name": "src/@types/tickets.d.ts"
+      "url": "https://raw.githubusercontent.com/victorsoares96/react-redux-microfrontend-boilerplate/master/container/src/%40types/container.d.ts",
+      "name": "src/@types/container.d.ts"
     }
   ]
 }
