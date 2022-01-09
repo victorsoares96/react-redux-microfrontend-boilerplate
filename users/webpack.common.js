@@ -1,23 +1,10 @@
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-const { TuneDtsPlugin } = require("@efox/emp-tune-dts-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-const deps = require("./package.json").dependencies;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index",
-  mode: "development",
-  devtool: "source-map",
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
-    },
-    port: 3001,
-  },
   output: {
-    publicPath: "auto",
+    publicPath: 'auto',
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
@@ -71,38 +58,9 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin(),
-    new ModuleFederationPlugin({
-      name: "container",
-      remotes: {
-        users: getRemoteUrl("users", 3002),
-      },
-      shared: {
-        ...deps,
-        react: {
-          singleton: true,
-          requiredVersion: deps["react"],
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: deps["react-dom"],
-        },
-      },
-    }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-    }),
-    new TuneDtsPlugin({
-      output: "./src/@types/container.d.ts",
-      path: "./src/@types",
-      name: "container.d.ts",
-      isDefault: true,
     }),
   ],
 };
 
-function getRemoteUrl(scope, port) {
-  if (process.env.NODE_ENV === "production") {
-    return `${scope}@https://victorsoares-app-${scope}/remoteEntry.js`;
-  }
-  return `${scope}@http://localhost:${port}/remoteEntry.js`;
-}

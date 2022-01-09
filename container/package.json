@@ -39,8 +39,8 @@
   },
   "scripts": {
     "install:dependencies": "npm install",
-    "start": "webpack-cli serve",
-    "build": "webpack --mode production",
+    "start": "webpack serve --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
     "clean": "rm -rf dist"
   }
 }
