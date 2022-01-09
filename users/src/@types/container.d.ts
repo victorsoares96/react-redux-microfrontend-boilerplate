@@ -133,6 +133,15 @@ declare module 'container/redux/tickets/tickets.slice' {
   >
   export default _default
 }
+declare module 'container/utils/general' {
+  import React, { ComponentType } from 'react'
+  export const mfe: () => Promise<void>
+  export const dynamicFederation: (scope: string, module: any) => Promise<any>
+  export function importFederatedModule<T extends ComponentType<any>>(
+    name: string,
+    federatedModule: any
+  ): React.LazyExoticComponent<T>
+}
 declare module 'container' {
   import main = require('container')
   export = main

@@ -2,15 +2,10 @@ import React, { Suspense } from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { store } from "../../redux/store";
 import { createTicket } from "../../redux/tickets/tickets.slice";
-import { dynamicFederation, importFederatedModule } from "../../utils/general";
-
-// import usersReducer from './users/redux/users/users.slice';
 import { Button } from "antd";
 
 import { createUser } from 'users/redux/users/users.slice';
 const Users = React.lazy(() => import("users/App"));
-// const Ola = importFederatedModule<any>('users', './users/redux/users/users.slice');
-// const Users = importFederatedModule<typeof MFEUsers>('users', './users/App');
 
 const Landing = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +15,18 @@ const Landing = () => {
       <div style={{ border: "1.5px solid red" }}>
         <h3>Welcome to Host App</h3>
 
-        <Button type="primary" onClick={() => test()}>Host App</Button>
+        <Button 
+          type="primary" 
+          onClick={() => 
+            dispatch(createUser({ 
+              id: 99, 
+              name: 'Victor' 
+            }))
+          }
+        >
+          Create User
+        </Button>
+        
         <div>
           <button
             onClick={() =>
@@ -34,15 +40,6 @@ const Landing = () => {
             }
           >
             Create Ticket
-          </button>
-
-          <button
-            style={{ marginLeft: '10px' }}
-            onClick={() =>
-              dispatch({ type: 'users/createUser', payload: { id: 1, name: 'Foo Bar' } })
-            }
-          >
-            Create User
           </button>
         </div>
 
