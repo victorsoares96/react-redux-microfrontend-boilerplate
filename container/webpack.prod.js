@@ -15,6 +15,7 @@ module.exports = merge(common, {
       name: "container",
       remotes: {
         users: 'users@https://victorsoares-app-users.netlify.app/remoteEntry.js',
+        utils: 'utils@https://victorsoares-app-utils.netlify.app/remoteEntry.js',
       },
       shared: {
         ...deps,

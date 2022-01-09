@@ -4,6 +4,7 @@ import { store } from "../../redux/store";
 import { createTicket } from "../../redux/tickets/tickets.slice";
 import { Button } from "antd";
 
+import sayHello from 'utils/sayHello';
 import { createUser } from 'users/redux/users/users.slice';
 const Users = React.lazy(() => import("users/App"));
 
@@ -15,6 +16,7 @@ const Landing = () => {
       <div style={{ border: "1.5px solid red" }}>
         <h3>Welcome to Host App</h3>
 
+        <Button onClick={() => console.log(sayHello())}>Say Hello</Button>
         <Button 
           type="primary" 
           onClick={() => 

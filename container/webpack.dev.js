@@ -21,6 +21,7 @@ module.exports = merge(common, {
       name: "container",
       remotes: {
         users: 'users@http://localhost:3002/remoteEntry.js',
+        utils: 'utils@http://localhost:3003/remoteEntry.js',
       },
       shared: {
         ...deps,
