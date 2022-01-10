@@ -1,0 +1,29 @@
+.container :global {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+
+  .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .stats {
+    display: flex;
+    align-items: center;
+
+    .ant-badge {
+      margin-right: 20px;
+    }
+  }
+
+  .ant-row-rtl .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+  }
+}

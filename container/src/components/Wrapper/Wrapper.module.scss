@@ -1,0 +1,13 @@
+.container :global {
+  min-height: 100vh !important;
+  .site-layout-content {
+    min-height: 280px;
+    height: 100%;
+    padding: 24px;
+    background: #fff;
+  }
+  
+  [data-theme="dark"] .site-layout-content {
+    background: #141414;
+  }
+}

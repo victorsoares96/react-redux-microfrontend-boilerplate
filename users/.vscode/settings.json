@@ -5,6 +5,10 @@
     {
       "url": "https://raw.githubusercontent.com/victorsoares96/react-redux-microfrontend-boilerplate/master/container/src/%40types/container.d.ts",
       "name": "src/@types/container.d.ts"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/victorsoares96/react-redux-microfrontend-boilerplate/master/utils/src/%40types/utils.d.ts",
+      "name": "src/@types/utils.d.ts"
     }
   ]
 }

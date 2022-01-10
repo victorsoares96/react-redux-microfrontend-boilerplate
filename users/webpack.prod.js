@@ -14,10 +14,12 @@ module.exports = merge(common, {
     new ModuleFederationPlugin({
       name: "users",
       filename: "remoteEntry.js",
-      library: { type: "var", name: "users" },
+      remotes: {
+        utils: 'utils@https://victorsoares-app-utils.netlify.app/remoteEntry.js',
+      },
       exposes: {
-        "./App": "./src/App",
-        "./test": "./src/utils/test",
+        "./components/UsersGrid/UsersGrid": "./src/components/UsersGrid/UsersGrid",
+        "./redux/store": "./src/redux/store",
         "./redux/users/users.slice": "./src/redux/users/users.slice",
       },
       shared: {

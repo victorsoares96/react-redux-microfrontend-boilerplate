@@ -3,7 +3,8 @@
     "sourceMap": true,
     "strict": true,
     "jsx": "react",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "downlevelIteration": true,
   },
   "include": ["src/**/*"]
 }

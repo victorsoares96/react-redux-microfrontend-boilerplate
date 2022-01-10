@@ -1,63 +1,71 @@
-import { Button } from "antd";
-import React, { useEffect } from "react";
+import { Button, Space, Table } from "antd";
+import React from "react";
+import faker from "faker";
 
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { createUser } from "../../redux/users/users.slice";
 
-// import { createTicket } from 'tickets/redux/tickets/tickets.slice';
+import sayHello from 'utils/sayHello';
 
-// import { RootState as TicketsState } from 'tickets/redux/store';
-// import { useSelector } from "react-redux";
+import styles from "./UsersGrid.module.scss";
 
-const UsersGrid = () => {
+function UsersGrid() {
   const dispatch = useAppDispatch();
-  const users = useAppSelector((state) => state.users);
-  const tickets = useAppSelector((state) => state.tickets);
-  // const tickets = useSelector<TicketsState>(state => state.tickets);
+  const users = useAppSelector((state) => state.users?.list);
+
+  const columns = [
+    {
+      title: "ID",
+      dataIndex: "id",
+      key: "id",
+      render: (text: number) => <a>{text}</a>,
+    },
+    {
+      title: "Name",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: () => (
+        <Space size="middle" onClick={() => sayHello()}>
+          <a>Say Hello</a>
+        </Space>
+      ),
+    },
+  ];
 
   return (
-    <div style={{ border: "1.5px solid blue", marginTop: "10px" }}>
-      <h3>Welcome to Users Grid Updated</h3>
+    <div className={styles.container}>
+      <h1>Users</h1>
+      <caption className="mfe">Hello i'm on the Remote App</caption>
 
-      <Button type="primary">Hello</Button>
-      <div>
-        <button
-          onClick={() =>
-            dispatch(
-              createUser({
-                id: users.list.length + 1,
-                name: "John Doe",
-              })
-            )
-          }
-        >
-          Create User
-        </button>
-      </div>
+      <Button
+        type="primary"
+        onClick={() =>
+          dispatch(
+            createUser({
+              id: users.length + 1,
+              name: faker.name.firstName(),
+            })
+          )
+        }
+      >
+        New User
+      </Button>
 
-      {users && (
-        <div>
-          <ul>
-            {users.list.map((user) => (
-              <li key={user.id}>{user.name}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {tickets && <div style={{ border: "1.5px solid red", margin: '10px' }}>
-        <h3>Host App Tickets</h3>
-
-        <span>Number tickets: {tickets.list.length}</span>
-
-        <ul>
-          {tickets.list.map((ticket) => (
-            <li key={ticket.id}>{ticket.name}</li>
-          ))}
-        </ul>
-      </div>}
+      <Table columns={columns} dataSource={users} />
     </div>
   );
-};
+}
+
+export function Loading() {
+  return (
+    <div>
+      <span>Loading...</span>
+    </div>
+  );
+}
 
 export default UsersGrid;

@@ -1,9 +1,12 @@
 declare module 'users/App' {
   /// <reference types="react" />
   import './styles/theme.less'
-  import './App.scss'
-  import { store as hostReduxStore } from 'tickets/redux/store'
-  const App: ({ hostStore }: { hostStore: any }) => JSX.Element
+  import { store as hostReduxStore } from 'container/redux/store'
+  const App: ({
+    hostStore,
+  }: {
+    hostStore: typeof hostReduxStore
+  }) => JSX.Element
   export default App
 }
 declare module 'users/bootstrap' {
@@ -11,7 +14,7 @@ declare module 'users/bootstrap' {
 }
 declare module 'users/components/UsersGrid/UsersGrid' {
   /// <reference types="react" />
-  const UsersGrid: () => JSX.Element
+  function UsersGrid(): JSX.Element
   export default UsersGrid
 }
 declare module 'users' {
@@ -20,7 +23,7 @@ declare module 'users' {
 declare module 'users/redux/hooks' {
   import { TypedUseSelectorHook } from 'react-redux'
   import type { RootState } from 'users/redux/store'
-  import type { RootState as TicketsState } from 'tickets/redux/store'
+  import type { RootState as TicketsState } from 'container/redux/store'
   type CombinedState = RootState & TicketsState
   export const useAppDispatch: () => import('redux').Dispatch<
     import('redux').AnyAction

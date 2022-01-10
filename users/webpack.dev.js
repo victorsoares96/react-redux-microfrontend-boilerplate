@@ -20,10 +20,12 @@ module.exports = merge(common, {
     new ModuleFederationPlugin({
       name: "users",
       filename: "remoteEntry.js",
-      library: { type: "var", name: "users" },
+      remotes: {
+        utils: 'utils@http://localhost:3003/remoteEntry.js',
+      },
       exposes: {
-        "./App": "./src/App",
-        "./test": "./src/utils/test",
+        "./components/UsersGrid/UsersGrid": "./src/components/UsersGrid/UsersGrid",
+        "./redux/store": "./src/redux/store",
         "./redux/users/users.slice": "./src/redux/users/users.slice",
       },
       shared: {

@@ -1,8 +1,10 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
 import ticketsReducer from './tickets/tickets.slice';
+import usersReducer from "users/redux/users/users.slice";
 
 const staticReducers = {
   tickets: ticketsReducer,
+  users: usersReducer,
 };
 
 const createReducer = (asyncReducers: any) => {

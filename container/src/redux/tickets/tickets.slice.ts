@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, AppThunk } from '../store';
 import { createTicket as createTicketService } from './tickets.api';
 
 export type Ticket = {
@@ -15,7 +14,23 @@ export interface TicketsGridState {
 
 const initialState: TicketsGridState = {
   fetching: false,
-  list: [],
+  list: [
+    {
+      id: 1,
+      name: 'John Brown',
+      priority: 'low',
+    },
+    {
+      id: 2,
+      name: 'Jim Green',
+      priority: 'medium',
+    },
+    {
+      id: 3,
+      name: 'Joe Black',
+      priority: 'high',
+    },
+  ],
 };
 
 // The function below is called a thunk and allows us to perform async logic. It

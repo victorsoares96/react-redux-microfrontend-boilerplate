@@ -1,7 +1,7 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import type { RootState, AppDispatch } from './store';
-import type { RootState as TicketsState } from 'tickets/redux/store';
+import type { RootState as TicketsState } from 'container/redux/store';
 
 type CombinedState = RootState & TicketsState;
 
