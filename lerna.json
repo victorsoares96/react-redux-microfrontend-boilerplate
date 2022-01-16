@@ -1,7 +1,8 @@
 {
   "packages": [
     "container",
-    "users"
+    "users",
+    "utils"
   ],
   "version": "0.0.0"
 }
